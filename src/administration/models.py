@@ -48,21 +48,6 @@ class LeaveRequest(models.Model):
         verbose_name_plural = "Leave Requests"
 
 
-class TrainingProgram(models.Model):
-    program_name    = models.CharField(max_length=255)
-    description     = models.TextField(null=True, blank=True)
-    start_date      = models.DateField()
-    end_date        = models.DateField()
-    staffs          = models.ManyToManyField(Staff)
-
-    def __str__(self):
-        return self.program_name
-
-    class Meta:
-        verbose_name = "Training Program"
-        verbose_name_plural = "Training Programs"
-
-
 class PerformanceReview(models.Model):
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
     review_date = models.DateField()

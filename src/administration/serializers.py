@@ -5,8 +5,8 @@ from src.administration.models import (
     LeaveRequest,
     PerformanceReview,
     Attendance,
-    TrainingProgram,
 )
+from src.administration.development import TrainingProgram, TrainingFile, TrainingMaterial, TrainingVideo
 
 
 class FeedBackSerializer(serializers.ModelSerializer):
@@ -58,12 +58,6 @@ class LeaveRequestSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class TrainingProgramSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TrainingProgram
-        fields = "__all__"
-
-
 class StaffTrainingSerializer(serializers.ModelSerializer):
     program = serializers.CharField(source="program_name")
     description = serializers.CharField(source="program_description")
@@ -77,3 +71,28 @@ class PerformanceReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = PerformanceReview
         fields = "__all__"
+
+
+class TrainingProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingProgram
+        fields = "__all__"
+
+
+class TrainingFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingFile
+        fields = "__all__"
+
+
+class TrainingMaterialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingMaterial
+        fields = "__all__"
+    
+
+class TrainingVideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingVideo
+        fields = "__all__"
+    

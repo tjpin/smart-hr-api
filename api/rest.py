@@ -15,7 +15,7 @@ from django.contrib.auth.tokens import default_token_generator
 from .mixins import (CreateListRetrieveViewSet, StaffListRetrieveMixin,
                      SurveyCreateListRetrieveViewSet)
 from src.administration.models import (
-    LeaveRequest, PerformanceReview, Attendance, TrainingProgram)
+    LeaveRequest, PerformanceReview, Attendance)
 from src.finance.models import (
     Benefit, PayrollRecord, SalaryComponent, SalaryStructure, TaxInformation)
 from src.account.models import StaffUser

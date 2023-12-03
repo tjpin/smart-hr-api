@@ -41,7 +41,7 @@ class FormDocument(models.Model):
 
 
 class Document(models.Model):
-    document_id = models.CharField(max_length=16, default=timestamp_id(10))
+    document_id = models.CharField(max_length=16, default=timestamp_id(10), primary_key=True)
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
     document_type = models.CharField(
         max_length=100, default=DocumentType.DEFAULT, choices=DocumentType.choices
@@ -123,7 +123,7 @@ class Transmital(models.Model):
 class Archive(models.Model):
     """Store archived files."""
 
-    document = models.ForeignKey(Document, on_delete=models.CASCADE)
+    document = models.ForeignKey(Document, related_name="archived_document", on_delete=models.CASCADE)
     date_archived = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:

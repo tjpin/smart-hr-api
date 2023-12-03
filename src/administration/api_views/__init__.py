@@ -1,6 +1,7 @@
 from utils.constants import DEFAULT_AUTH, DEFAULT_PERMS
 from src.administration.engagement import *
 from src.administration.serializers import *
+from src.administration.development import *
 from api.rest import *
 
 
@@ -52,22 +53,41 @@ class LeaveRequestListCreateAPIView(CreateListRetrieveViewSet):
     permission_classes = DEFAULT_PERMS
 
 
-# Trainings
-class TrainingProgramListCreateAPIView(CreateListRetrieveViewSet):
-    queryset = TrainingProgram.objects.all()
-    serializer_class = TrainingProgramSerializer
-    # authentication_classes = DEFAULT_AUTH
-    # permission_classes = DEFAULT_PERMS
-
-
-# class TrainingEnrollmentListCreateAPIView(CreateListRetrieveViewSet):
-#     queryset = TrainingEnrollment.objects.all()
-#     serializer_class = TrainingEnrollmentSerializer
-
-
 # Performances
 class PerformanceReviewListCreateAPIView(CreateListRetrieveViewSet):
     queryset = PerformanceReview.objects.all()
     serializer_class = PerformanceReviewSerializer
+    authentication_classes = DEFAULT_AUTH
+    permission_classes = DEFAULT_PERMS
+
+
+# Trainings
+class TrainingProgramListCreateAPIView(CreateListRetrieveViewSet):
+    queryset = TrainingProgram.objects.all()
+    serializer_class = TrainingProgramSerializer
+    authentication_classes = DEFAULT_AUTH
+    permission_classes = DEFAULT_PERMS
+
+
+# TrainingFiles
+class TrainingFileListCreateAPIView(CreateListRetrieveViewSet):
+    queryset = TrainingFile.objects.all()
+    serializer_class = TrainingFileSerializer
+    authentication_classes = DEFAULT_AUTH
+    permission_classes = DEFAULT_PERMS
+
+
+# TrainingFiles
+class TrainingVideoListCreateAPIView(CreateListRetrieveViewSet):
+    queryset = TrainingVideo.objects.all()
+    serializer_class = TrainingVideoSerializer
+    authentication_classes = DEFAULT_AUTH
+    permission_classes = DEFAULT_PERMS
+
+
+# TrainingFiles
+class TrainingMaterialListCreateAPIView(CreateListRetrieveViewSet):
+    queryset = TrainingMaterial.objects.all()
+    serializer_class = TrainingMaterialSerializer
     authentication_classes = DEFAULT_AUTH
     permission_classes = DEFAULT_PERMS

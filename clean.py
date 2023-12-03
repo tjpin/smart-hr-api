@@ -26,5 +26,4 @@ if __name__ == "__main__":
         os.path.join(os.path.dirname(__file__), "db.sqlite3")
     ):
         os.remove("db.sqlite3")
-    else:
-        clean_migrations()
+    clean_migrations()
