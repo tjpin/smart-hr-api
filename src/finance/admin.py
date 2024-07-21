@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import *
-from .bank import Bank
+from .bank import Bank, StaffBankAccount
 
 
 @admin.register(PayrollRecord)
@@ -13,6 +13,7 @@ class PayrollAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Bank)
+admin.site.register(StaffBankAccount)
 admin.site.register(TaxInformation)
 admin.site.register(Benefit)
 admin.site.register(Allowance)

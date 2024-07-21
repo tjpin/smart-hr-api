@@ -6,9 +6,9 @@ from .models import *
 
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ["document_id", "owner", "date_uploaded", "public_document"]
+    list_display = ["document_id", "owner", "date_uploaded", "public_document", "archived"]
     list_display_links = ("document_id", "owner")
-    list_filter = ("is_public",)
+    list_filter = ("is_public", "archived")
     readonly_fields = ("document_id",)
 
     def public_document(self, obj):

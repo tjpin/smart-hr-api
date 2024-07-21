@@ -8,7 +8,7 @@ from utils.options import (LeaveType, LeaveStatus)
 
 
 class Attendance(models.Model):
-    staff   = models.ForeignKey(Staff, related_name='staff_name', on_delete=models.CASCADE)
+    staff   = models.ForeignKey(Staff, on_delete=models.CASCADE)
     date    = models.DateField(default=timezone.now)
     clock_in_time   = models.TimeField(default=timezone.now)
     clock_out_time  = models.TimeField(blank=True, null=True)
@@ -18,14 +18,12 @@ class Attendance(models.Model):
 
     class Meta:
         verbose_name = "Attendance"
-        verbose_name_plural = "Attendances "
+        verbose_name_plural = "Attendances"
 
     @property
     def hours_worked(self):
         if not self.clock_out_time:
             return 0
-        # if self.clock_out_time is None:
-        #     return timezone.now().time - self.clock_in_time
         time_worked = dt.combine(
             dt.today(), self.clock_out_time) - dt.combine(dt.today(), self.clock_in_time)
         return "%.2f hours" % float(time_worked.seconds.real / 3600)

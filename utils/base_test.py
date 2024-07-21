@@ -6,14 +6,17 @@ from datetime import datetime as dt
 
 
 def create_test_user(StaffUser):
-    _user = StaffUser.objects.create(
-        is_active=True,
-        is_staff=True,
-        is_superuser=True,
-        phone_number=12345678900
-    )
-    _user.set_password('admin.123')
-    _user.save()
+    contacts = [12345678900, 3265478966, 4785326513]
+    
+    for num in contacts:
+        _user = StaffUser.objects.create(
+            is_active=True,
+            is_staff=True,
+            is_superuser=True,
+            phone_number=num
+        )
+        _user.set_password('user'+str(num))
+        _user.save()
 
 
 def add_headers() -> dict:

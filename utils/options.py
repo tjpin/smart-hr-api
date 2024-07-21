@@ -13,6 +13,7 @@ class StaffStatus(models.TextChoices):
     SUSPENDED = "Suspended"
     TERMINATED = "Terminated"
     ON_HOLD = "On Hold"
+    ON_LEAVE = "On Leave"
 
 
 class LeaveType(models.TextChoices):
@@ -164,7 +165,7 @@ class EducationLevels(models.TextChoices):
     COLLEGE = "College"
     DIPLOMA = "Diploma"
     BACHELOR = "Bachelor"
-    DEGREE = "degree"
+    DEGREE = "Degree"
     MASTERS = "Masters"
     DOCTORATE = "Doctorate"
     OTHER = "Other"

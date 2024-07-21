@@ -27,4 +27,5 @@ LOGGER_FILENAMES = {
     "users": "logs/users-logs.log",
     "staffs": "logs/staff-logs.log",
     "documents": "logs/directory-logs.log",
+    "archives": "logs/archive-logs.log",
 }

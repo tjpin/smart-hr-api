@@ -47,6 +47,12 @@ LOGGING = {
             'class': DEFAULT_FILE_LOGGER,
             'filename': LOGGER_FILENAMES['documents'],
         },
+        'archive_document': {
+            "formatter": "base",
+            'level': LOGGER_LEVEL['info'],
+            'class': DEFAULT_FILE_LOGGER,
+            'filename': LOGGER_FILENAMES['archives'],
+        },
         'docs_delete': {
             "formatter": "base",
             'level': LOGGER_LEVEL['warning'],
@@ -82,6 +88,11 @@ LOGGING = {
         },
         'document_upload_logger': {
             'handlers': ['upload_document'],
+            'level': LOGGER_LEVEL['info'],
+            'propagate': True,
+        },
+        'document_archive_logger': {
+            'handlers': ['archive_document'],
             'level': LOGGER_LEVEL['info'],
             'propagate': True,
         },

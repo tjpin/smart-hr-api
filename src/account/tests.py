@@ -7,12 +7,17 @@ from datetime import datetime as dt
 from .models import *
 from src.account.staff import *
 from src.account.models import StaffUser
-from utils.base_test import (create_test_user, add_headers, random_staffs)
+from utils.base_test import create_test_user, add_headers, random_staffs
+
+from utils.data_map import DataframeFromModel
 
 
 class AccountsTestCase(TestCase):
     def setUp(self):
         create_test_user(StaffUser)
+        random_staffs(Staff, Department)
+        self.df = DataframeFromModel(model=Staff)
+
         random_staffs(Staff, Department)
 
         self.dpt1 = Department.objects.get(department_name="Administration")
